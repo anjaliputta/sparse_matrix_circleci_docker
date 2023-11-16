@@ -41,10 +41,10 @@ jobs:
 workflows:
   test-run-workflow:
     jobs:
-      - test-and-run:
-          filters:
-            branches:
-              only: master # only deploy when on master
+      # - test-and-run:
+      #     filters:
+      #       branches:
+      #         only: master # only deploy when on master
       - build-and-push:
           filters:
             branches:
