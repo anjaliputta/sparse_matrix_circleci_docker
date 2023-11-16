@@ -25,6 +25,6 @@ workflows:
   test-run-workflow:
     jobs:
       - test-and-run:
-      filters:
-            branches:
-              only: master # only deploy when on master
+          filters:
+                branches:
+                  only: master # only deploy when on master
