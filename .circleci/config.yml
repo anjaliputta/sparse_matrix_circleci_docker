@@ -20,11 +20,32 @@ jobs:
           name: Execute Python file
           command: python sparse_recommender.py
 
+  build_and_push:
+        docker:
+            - image: cimg/python:3.8
+        steps:
+            - checkout
+            - setup_remote_docker:
+                version: 19.03.13
+            - run:
+                name: Docker build
+                command: docker build -t $DOCKERHUB_USERNAME/myapp:${CIRCLE_SHA1} .
+            - run:
+                name: Authenticate with Docker Hub
+                command: echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USERNAME --password-stdin
+            - run:
+                name: Push Docker Image to Docker Hub
+                command: docker push $DOCKERHUB_USERNAME/sparse_matrix_recommender:${CIRCLE_SHA1}
+
 
 workflows:
   test-run-workflow:
     jobs:
       - test-and-run:
+          filters:
+                branches:
+                  only: master # only deploy when on master
+      - build-and-push:
           filters:
                 branches:
                   only: master # only deploy when on master
