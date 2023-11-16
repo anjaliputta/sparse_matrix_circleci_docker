@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run:
           name: Install Pytest module
-          command: pip install pytest
+          command: pip install pytest numpy
       - run:
           name: Install Pytest module
           command: pytest test_sparse_recommender.py
