@@ -4,6 +4,22 @@ orbs:
   python: circleci/python@2.0.3
 
 jobs:
+  # test-and-run:
+  #   # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+  #   executor: python/default # use the default executor defined within the orb
+    
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Install Pytest module
+  #         command: pip install pytest numpy
+  #     - run:
+  #         name: Install Pytest module
+  #         command: pytest test_sparse_recommender.py
+  #     - run:
+  #         name: Execute Python file
+  #         command: python sparse_recommender.py
+
   build_and_push:
     docker:
       - image: cimg/python:3.8
@@ -20,23 +36,6 @@ jobs:
       - run:
           name: Push Docker Image to Docker Hub
           command: docker push $DOCKERHUB_USERNAME/sparse_matrix_recommender:${CIRCLE_SHA1}
-  test-and-run:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    executor: python/default # use the default executor defined within the orb
-    
-    steps:
-      - checkout
-      - run:
-          name: Install Pytest module
-          command: pip install pytest numpy
-      - run:
-          name: Install Pytest module
-          command: pytest test_sparse_recommender.py
-      - run:
-          name: Execute Python file
-          command: python sparse_recommender.py
-
-  
 
 
 workflows:
