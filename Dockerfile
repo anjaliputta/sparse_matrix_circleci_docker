@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install any dependencies
-RUN pip install pytest numpy
+RUN pip install --progress-bar off pytest numpy
 
 # Run your application
 CMD [ "pytest", "test_sparse_recommender.py" ]
