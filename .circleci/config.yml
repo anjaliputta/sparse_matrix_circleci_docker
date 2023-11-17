@@ -22,7 +22,7 @@ jobs:
 
   build-and-push:
     docker:
-      - image: cimg/python:3.10
+      - image: cimg/python:30.100
     steps:
       - checkout
       - setup_remote_docker:
