@@ -46,6 +46,8 @@ workflows:
             branches:
               only: master # only deploy when on master
       - build-and-push:
+          requires:
+            - test-and-run
           filters:
             branches:
               only: master # only deploy when on master
