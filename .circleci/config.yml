@@ -1,7 +1,7 @@
 version: 2.1 # circle ci process engine version
 
-orbs:
-  python: circleci/python@2.0.3
+# orbs:
+#   python: circleci/python@2.0.3
 
 jobs:
   # test-and-run:
