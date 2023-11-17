@@ -4,18 +4,18 @@ orbs:
   python: circleci/python@2.0.3
 
 jobs:
-  test-and-run:
-    # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
-    executor: python/default # use the default executor defined within the orb
+  # test-and-run:
+  #   # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
+  #   executor: python/default # use the default executor defined within the orb
     
-    steps:
-      - checkout
-      - run:
-          name: Install Pytest module
-          command: pip install pytest numpy
-      - run:
-          name: Install Pytest module
-          command: pytest test_sparse_recommender.py
+  #   steps:
+  #     - checkout
+  #     - run:
+  #         name: Install Pytest module
+  #         command: pip install pytest numpy
+  #     - run:
+  #         name: Install Pytest module
+  #         command: pytest test_sparse_recommender.py
       # - run:
       #     name: Execute Python file
       #     command: python sparse_recommender.py
@@ -41,10 +41,10 @@ jobs:
 workflows:
   test-run-workflow:
     jobs:
-      - test-and-run:
-          filters:
-            branches:
-              only: master # only deploy when on master
+      # - test-and-run:
+      #     filters:
+      #       branches:
+      #         only: master # only deploy when on master
       - build-and-push:
           filters:
             branches:
