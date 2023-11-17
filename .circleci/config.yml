@@ -15,7 +15,7 @@ jobs:
           command: pip install pytest numpy
       - run:
           name: Execute sparse_recommender file
-          command: python sparse_recommender.py `1
+          command: python sparse_recommender.py
       - run:
           name: Test Sparse Recommender
           command: pytest test_sparse_recommender.py
